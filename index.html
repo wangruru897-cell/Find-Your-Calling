@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8" />
@@ -1860,6 +1860,7 @@
     else if (state.view === 'list') app.innerHTML = renderList();
     else if (state.view === 'result') app.innerHTML = renderResult();
     attachEvents();
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
   }
   function answeredCount() {
     return Object.keys(state.answers).filter(k => {
