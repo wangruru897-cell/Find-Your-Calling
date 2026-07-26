@@ -1,0 +1,2429 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="theme-color" content="#ffffff" />
+  <meta name="description" content="基于八木仁平《如何找到想做的事》自我认知法。15 个问题，3 个支柱，1 句精确结论。" />
+  <title>找到想做的事 · Find Your Calling</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;700;900&family=Noto+Sans+SC:wght@300;400;500;700&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #ffffff;
+      --bg-alt: #f5f5f5;
+      --ink: #0a0a0a;
+      --ink-soft: #2a2a2a;
+      --muted: #767676;
+      --line: #e5e5e5;
+      --line-strong: #0a0a0a;
+
+      /* 3 module colors — primary, bold, distinct */
+      --why: #E5322D;      /* red */
+      --how: #0046C8;      /* blue */
+      --what: #F4B400;     /* yellow */
+    }
+
+    * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, 'PingFang SC', sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.6;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
+      font-size: 15.5px;
+    }
+    .serif { font-family: 'Noto Serif SC', 'Songti SC', serif; }
+    .en { font-family: 'Cormorant Garamond', 'Times New Roman', serif; }
+    .mono { font-family: 'JetBrains Mono', ui-monospace, monospace; }
+
+    .container {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 0 32px 80px;
+    }
+
+    /* ========== 顶部 brand bar ========== */
+    .site-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 22px 32px;
+      border-bottom: 1.5px solid var(--ink);
+      margin: 0 -32px 0;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      cursor: pointer;
+    }
+    .brand-mark {
+      width: 26px;
+      height: 26px;
+      display: flex;
+      flex-shrink: 0;
+    }
+    .brand-text { display: flex; flex-direction: column; line-height: 1.1; }
+    .brand-name {
+      font-family: 'Noto Serif SC', serif;
+      font-weight: 700;
+      font-size: 15.5px;
+      letter-spacing: 0.5px;
+    }
+    .brand-sub {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 11.5px;
+      color: var(--muted);
+      letter-spacing: 1.5px;
+      margin-top: 2px;
+    }
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .mode-toggle {
+      display: flex;
+      gap: 0;
+      align-items: stretch;
+      border: 1px solid var(--ink);
+    }
+    .mode-toggle button {
+      background: none;
+      border: none;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10.5px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--ink);
+      cursor: pointer;
+      padding: 8px 14px;
+      transition: all 0.15s;
+    }
+    .mode-toggle button + button { border-left: 1px solid var(--ink); }
+    .mode-toggle button.active {
+      background: var(--ink);
+      color: #fff;
+    }
+
+    /* ========== 欢迎页 Hero ========== */
+    .welcome { animation: fadeIn 0.5s ease-out; }
+    .hero {
+      padding: 64px 0 0;
+    }
+    .hero-eyebrow {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--ink);
+      margin-bottom: 28px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .hero-eyebrow::before {
+      content: '';
+      width: 32px;
+      height: 1.5px;
+      background: var(--ink);
+    }
+    .hero h1 {
+      font-family: 'Noto Serif SC', serif;
+      font-weight: 900;
+      font-size: 60px;
+      line-height: 1.05;
+      letter-spacing: -1.5px;
+      margin: 0 0 24px;
+    }
+    .hero h1 .accent { color: var(--ink); }
+    .hero h1 .italic-en {
+      display: block;
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-weight: 500;
+      font-size: 30px;
+      color: var(--muted);
+      letter-spacing: 0;
+      margin-top: 8px;
+    }
+    .hero .lede {
+      font-size: 16px;
+      line-height: 1.7;
+      color: var(--ink-soft);
+      max-width: 560px;
+      margin: 0 0 24px;
+    }
+    .hero-stats {
+      display: flex;
+      gap: 28px;
+      padding: 18px 0;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      margin: 32px 0 0;
+    }
+    .hero-stat {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .hero-stat-num {
+      font-family: 'Noto Serif SC', serif;
+      font-weight: 700;
+      font-size: 22px;
+      letter-spacing: -0.5px;
+    }
+    .hero-stat-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 9.5px;
+      letter-spacing: 1.5px;
+      color: var(--muted);
+      text-transform: uppercase;
+    }
+
+    /* ========== Hero 大按钮（首页置顶 CTA） ========== */
+    .hero-cta {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 36px auto 32px;
+    }
+    .btn-hero {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 18px;
+      background: var(--ink);
+      color: #fff;
+      border: none;
+      padding: 24px 56px;
+      font-family: 'Noto Serif SC', serif;
+      font-size: 21px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      min-width: 320px;
+      position: relative;
+    }
+    .btn-hero:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 28px rgba(10,10,10,0.18);
+    }
+    .btn-hero:active { transform: translateY(0); }
+    .btn-hero-arrow {
+      font-size: 22px;
+      font-weight: 400;
+      transition: transform 0.2s ease;
+    }
+    .btn-hero:hover .btn-hero-arrow { transform: translateX(8px); }
+    .hero-cta-meta {
+      margin-top: 18px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 2.5px;
+      color: var(--muted);
+    }
+    .hero-stats--compact {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0 auto 56px;
+      max-width: 600px;
+      padding: 22px 0;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+    .hero-stats--compact .hero-stat {
+      flex: 1;
+      text-align: center;
+      align-items: center;
+    }
+    .hero-stats--compact .hero-stat-num {
+      font-family: 'Noto Serif SC', serif;
+      font-weight: 700;
+      font-size: 30px;
+      letter-spacing: -0.5px;
+    }
+    .hero-stats--compact .hero-stat-sep {
+      width: 1px;
+      height: 32px;
+      background: var(--line);
+    }
+
+    /* ========== 三色模块块（Hero 下方） ========== */
+    .modules {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      margin: 48px 0 0;
+      border: 1.5px solid var(--ink);
+    }
+    .module-block {
+      padding: 28px 22px;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      min-height: 140px;
+      justify-content: space-between;
+      border-right: 1.5px solid var(--ink);
+    }
+    .module-block:last-child { border-right: none; }
+    .module-block.why { background: var(--why); }
+    .module-block.how { background: var(--how); }
+    .module-block.what { background: var(--what); color: var(--ink); }
+    .mb-num {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 2px;
+      opacity: 0.75;
+    }
+    .mb-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-weight: 600;
+      font-size: 32px;
+      line-height: 1;
+    }
+    .mb-name-cn {
+      font-family: 'Noto Serif SC', serif;
+      font-weight: 700;
+      font-size: 18px;
+      margin-top: 4px;
+    }
+
+    /* ========== 公式区 ========== */
+    .formula-section {
+      margin: 80px 0 0;
+      padding: 48px 0;
+      border-top: 1.5px solid var(--ink);
+    }
+    .section-num {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10.5px;
+      letter-spacing: 2.5px;
+      color: var(--ink);
+      text-transform: uppercase;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .section-num::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      background: var(--ink);
+    }
+    .formula-equation {
+      font-family: 'Noto Serif SC', serif;
+      font-weight: 500;
+      font-size: 26px;
+      line-height: 1.6;
+      margin: 0 0 16px;
+      letter-spacing: -0.3px;
+    }
+    .formula-equation .op {
+      font-weight: 700;
+      font-size: 32px;
+      vertical-align: -3px;
+      margin: 0 4px;
+    }
+    .formula-equation .why-mark { color: var(--why); }
+    .formula-equation .how-mark { color: var(--how); }
+    .formula-equation .what-mark { color: var(--what); }
+    .formula-equation .eq {
+      color: var(--muted);
+      margin: 0 10px;
+    }
+    .formula-equation .result {
+      display: block;
+      margin-top: 16px;
+      font-weight: 900;
+      font-size: 30px;
+      letter-spacing: -0.5px;
+    }
+    .formula-note {
+      font-size: 14px;
+      color: var(--ink-soft);
+      max-width: 540px;
+      margin: 28px 0 0;
+      line-height: 1.7;
+      padding: 16px 20px;
+      border-left: 3px solid var(--ink);
+    }
+    .formula-note strong { color: var(--ink); }
+
+    /* ========== 步骤列表 ========== */
+    .steps-section { margin: 64px 0 0; }
+    .steps-list { list-style: none; padding: 0; margin: 28px 0 0; }
+    .steps-list li {
+      display: grid;
+      grid-template-columns: 56px 12px 1fr;
+      gap: 18px;
+      padding: 24px 0;
+      border-top: 1px solid var(--line);
+      align-items: baseline;
+    }
+    .steps-list li:last-child { border-bottom: 1px solid var(--line); }
+    .steps-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-weight: 600;
+      font-size: 30px;
+      color: var(--ink);
+      line-height: 1;
+    }
+    .steps-dot {
+      width: 8px;
+      height: 8px;
+      background: var(--ink);
+      align-self: center;
+    }
+    .steps-dot.why { background: var(--why); }
+    .steps-dot.how { background: var(--how); }
+    .steps-dot.what { background: var(--what); }
+    .steps-content h4 {
+      font-family: 'Noto Serif SC', serif;
+      font-weight: 700;
+      font-size: 17px;
+      margin: 0 0 4px;
+    }
+    .steps-content p {
+      margin: 0;
+      font-size: 13.5px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    /* ========== 按钮 ========== */
+    .start-cta { margin: 56px 0 0; }
+    .btn-solid {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: var(--ink);
+      color: #fff;
+      border: none;
+      font-family: 'Noto Sans SC', sans-serif;
+      font-weight: 500;
+      font-size: 15px;
+      letter-spacing: 1px;
+      padding: 18px 32px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .btn-solid:hover { background: #2a2a2a; }
+    .btn-solid .arrow { font-family: 'Cormorant Garamond', serif; font-size: 18px; }
+    .btn-link {
+      display: inline-block;
+      background: none;
+      border: none;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--ink);
+      cursor: pointer;
+      text-decoration: underline;
+      text-underline-offset: 5px;
+      text-decoration-thickness: 1px;
+      padding: 8px 0;
+    }
+    .btn-link:hover { color: var(--ink-soft); }
+    .btn-link[disabled] { opacity: 0.3; cursor: not-allowed; text-decoration: none; }
+
+    /* ========== 误区页 ========== */
+    .misconceptions-page { animation: fadeIn 0.5s ease-out; }
+    .mis-header { margin: 56px 0 48px; }
+    .mis-eyebrow {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--ink);
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .mis-eyebrow::before {
+      content: '';
+      width: 32px;
+      height: 1.5px;
+      background: var(--ink);
+    }
+    .mis-title {
+      font-family: 'Noto Serif SC', serif;
+      font-weight: 900;
+      font-size: 48px;
+      line-height: 1.1;
+      margin: 0 0 18px;
+      letter-spacing: -1px;
+    }
+    .mis-title .italic-en {
+      display: block;
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-weight: 500;
+      font-size: 24px;
+      color: var(--muted);
+      margin-top: 10px;
+    }
+    .mis-lede {
+      font-size: 15.5px;
+      color: var(--ink-soft);
+      max-width: 560px;
+      line-height: 1.75;
+    }
+    .mis-list { margin: 0 0 56px; }
+    .mis-item {
+      display: grid;
+      grid-template-columns: 48px 1fr;
+      gap: 24px;
+      padding: 28px 0;
+      border-top: 1px solid var(--line);
+    }
+    .mis-item:last-child { border-bottom: 1px solid var(--line); }
+    .mis-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-weight: 600;
+      font-size: 36px;
+      color: var(--ink);
+      line-height: 1;
+    }
+    .mis-body .mis-myth {
+      font-family: 'Noto Serif SC', serif;
+      font-weight: 700;
+      font-size: 18px;
+      margin: 0 0 10px;
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+    }
+    .mis-body .mis-myth-mark {
+      display: inline-block;
+      width: 18px;
+      height: 18px;
+      background: var(--ink);
+      color: #fff;
+      text-align: center;
+      line-height: 18px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      font-weight: 700;
+      flex-shrink: 0;
+      position: relative;
+      top: 2px;
+    }
+    .mis-body .mis-truth {
+      font-size: 14.5px;
+      color: var(--ink-soft);
+      line-height: 1.8;
+      margin: 0;
+    }
+    .mis-body .mis-clarify {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10.5px;
+      letter-spacing: 1.5px;
+      color: var(--muted);
+      text-transform: uppercase;
+      margin-top: 10px;
+      display: block;
+    }
+
+    /* ========== 答题页：色带顶部 ========== */
+    .question-page { animation: fadeIn 0.4s ease-out; margin: 0 -32px; }
+    .q-shake { animation: qShake 0.42s cubic-bezier(0.36, 0.07, 0.19, 0.97); }
+    @keyframes qShake {
+      10%, 90% { transform: translateX(-2px); }
+      20%, 80% { transform: translateX(4px); }
+      30%, 50%, 70% { transform: translateX(-8px); }
+      40%, 60% { transform: translateX(8px); }
+    }
+    .q-require-hint {
+      text-align: center;
+      margin: 0 32px;
+      padding: 0;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11.5px;
+      letter-spacing: 1.2px;
+      color: var(--why);
+      opacity: 0;
+      max-height: 0;
+      overflow: hidden;
+      transition: opacity 0.25s ease, max-height 0.25s ease, padding 0.25s ease;
+    }
+    .q-require-hint.show {
+      opacity: 1;
+      max-height: 40px;
+      padding: 12px 32px 4px;
+    }
+    .module-band {
+      padding: 28px 32px;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      border-bottom: 1.5px solid var(--ink);
+    }
+    .module-band.why { background: var(--why); }
+    .module-band.how { background: var(--how); }
+    .module-band.what { background: var(--what); color: var(--ink); }
+    .module-band.constraint { background: var(--ink); }
+    .band-letter {
+      font-family: 'Noto Serif SC', serif;
+      font-weight: 900;
+      font-size: 32px;
+      line-height: 1;
+      letter-spacing: -0.5px;
+    }
+    .band-en {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 16px;
+      opacity: 0.85;
+      display: block;
+      margin-top: 2px;
+    }
+    .band-counter {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 2px;
+      opacity: 0.9;
+      text-align: right;
+    }
+
+    .q-content { padding: 48px 32px 0; }
+    .progress-section {
+      padding: 26px 32px 22px;
+      border-bottom: 1px solid var(--line);
+      margin: 0 -32px 0;
+      background: var(--bg);
+    }
+    .progress-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 16px;
+    }
+    .progress-eyebrow {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10.5px;
+      letter-spacing: 2px;
+      color: var(--muted);
+    }
+    .progress-count {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      color: var(--muted);
+      letter-spacing: 0.5px;
+    }
+    .progress-num {
+      color: var(--ink);
+      font-size: 24px;
+      font-weight: 600;
+      letter-spacing: -0.5px;
+      vertical-align: -2px;
+      font-family: 'Cormorant Garamond', 'Times New Roman', serif;
+    }
+    .progress-total { color: var(--muted); margin-left: 2px; }
+    .progress-bar {
+      display: flex;
+      height: 8px;
+      gap: 2px;
+      background: var(--bg-alt);
+      border: 1px solid var(--line);
+      padding: 1px;
+      position: relative;
+    }
+    .progress-seg {
+      flex: 1;
+      background: var(--line);
+      position: relative;
+      transition: background 0.3s ease, transform 0.3s ease;
+    }
+    .progress-seg.why.done { background: var(--why); }
+    .progress-seg.how.done { background: var(--how); }
+    .progress-seg.what.done { background: var(--what); }
+    .progress-seg.constraint.done { background: var(--ink); }
+    .progress-seg.current {
+      background: var(--ink);
+      transform: scaleY(1.5);
+      z-index: 2;
+      box-shadow: 0 0 0 2px rgba(10,10,10,0.08);
+    }
+    .progress-modules {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 12px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 1px;
+      color: var(--muted);
+    }
+    .progress-modules .pm-item { transition: color 0.25s, font-weight 0.25s; }
+    .progress-modules .pm-item.active {
+      color: var(--ink);
+      font-weight: 600;
+      position: relative;
+    }
+    .progress-modules .pm-item.active::before {
+      content: '';
+      display: inline-block;
+      width: 5px;
+      height: 5px;
+      background: currentColor;
+      margin-right: 6px;
+      vertical-align: 1px;
+      animation: pmPulse 1.6s ease-in-out infinite;
+    }
+    .progress-modules .pm-item.why.done { color: var(--why); }
+    .progress-modules .pm-item.how.done { color: var(--how); }
+    .progress-modules .pm-item.what.done { color: var(--what); }
+    .progress-modules .pm-item.constraint.done { color: var(--ink); }
+    @keyframes pmPulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(1.4); }
+    }
+
+    .q-title {
+      font-family: 'Noto Serif SC', serif;
+      font-weight: 700;
+      font-size: 28px;
+      line-height: 1.4;
+      margin: 0 0 20px;
+      color: var(--ink);
+      letter-spacing: -0.3px;
+    }
+    .q-hint {
+      font-size: 13.5px;
+      color: var(--muted);
+      line-height: 1.7;
+      margin: 0 0 32px;
+      padding: 14px 18px;
+      background: var(--bg-alt);
+      border-left: 3px solid var(--ink);
+    }
+    .q-hint strong { color: var(--ink); }
+
+    .options { display: flex; flex-direction: column; gap: 0; margin: 0 0 20px; }
+    .option {
+      background: #fff;
+      border: 1.5px solid var(--line);
+      border-bottom: none;
+      padding: 16px 18px;
+      text-align: left;
+      font-size: 15px;
+      color: var(--ink);
+      cursor: pointer;
+      font-family: inherit;
+      line-height: 1.5;
+      position: relative;
+      padding-left: 50px;
+      transition: all 0.15s;
+    }
+    .option:first-child { border-top: 1.5px solid var(--line); }
+    .option:last-child { border-bottom: 1.5px solid var(--line); }
+    .option::before {
+      content: '';
+      position: absolute;
+      left: 18px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 16px;
+      height: 16px;
+      border: 1.5px solid var(--ink);
+      background: #fff;
+    }
+    .option:hover { background: var(--bg-alt); padding-left: 56px; }
+    .option.selected {
+      background: var(--ink);
+      color: #fff;
+      border-color: var(--ink);
+      padding-left: 56px;
+    }
+    .option.selected::before {
+      background: #fff;
+      border-color: #fff;
+    }
+    .option.selected::after {
+      content: '';
+      position: absolute;
+      left: 22px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 8px;
+      height: 4px;
+      border-left: 2px solid var(--ink);
+      border-bottom: 2px solid var(--ink);
+      transform: translateY(-60%) rotate(-45deg);
+    }
+    .options-count {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10.5px;
+      letter-spacing: 1.5px;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+    .text-input {
+      width: 100%;
+      min-height: 120px;
+      padding: 16px 18px;
+      background: #fff;
+      border: 1.5px solid var(--ink);
+      font-family: 'Noto Serif SC', serif;
+      font-size: 15.5px;
+      color: var(--ink);
+      line-height: 1.7;
+      resize: vertical;
+      outline: none;
+    }
+    .text-input::placeholder { color: var(--muted); font-style: italic; }
+    .text-input:focus { background: var(--bg-alt); }
+    .custom-input {
+      width: 100%;
+      padding: 12px 18px;
+      border: 1.5px solid var(--line);
+      border-top: none;
+      font-family: 'Noto Sans SC', sans-serif;
+      font-size: 14px;
+      background: #fff;
+      outline: none;
+    }
+    .custom-input:focus { background: var(--bg-alt); }
+    .custom-input::placeholder { color: var(--muted); font-style: italic; }
+
+    .q-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 48px 32px 0;
+      padding: 20px 0;
+      border-top: 1.5px solid var(--ink);
+    }
+    .q-nav { display: flex; gap: 24px; align-items: center; }
+    .q-link {
+      background: none;
+      border: none;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--muted);
+      cursor: pointer;
+      padding: 4px 0;
+    }
+    .q-link:hover { color: var(--ink); }
+    .q-link.primary {
+      color: var(--ink);
+      font-weight: 600;
+      border-bottom: 1.5px solid var(--ink);
+      padding-bottom: 3px;
+    }
+    .q-link.primary:hover { color: var(--ink-soft); border-bottom-color: var(--ink-soft); }
+
+    /* ========== 列表模式 ========== */
+    .list-page { animation: fadeIn 0.5s ease-out; }
+    .list-progress-block { margin: 56px 0 48px; }
+    .list-section { margin-bottom: 48px; }
+    .list-section-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 16px 0;
+      border-bottom: 3px solid var(--ink);
+      margin-bottom: 4px;
+    }
+    .list-section-header.why { border-bottom-color: var(--why); }
+    .list-section-header.how { border-bottom-color: var(--how); }
+    .list-section-header.what { border-bottom-color: var(--what); }
+    .list-section-header.constraint { border-bottom-color: var(--ink); }
+    .list-section-letter {
+      font-family: 'Noto Serif SC', serif;
+      font-weight: 900;
+      font-size: 24px;
+      color: var(--ink);
+      width: 48px;
+    }
+    .list-section-title {
+      font-family: 'Noto Serif SC', serif;
+      font-weight: 700;
+      font-size: 17px;
+      flex: 1;
+    }
+    .list-section-count {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10.5px;
+      color: var(--muted);
+      letter-spacing: 1.5px;
+    }
+    .list-q {
+      padding: 20px 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .list-q-title {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+      margin: 0 0 12px;
+      font-family: 'Noto Serif SC', serif;
+      font-weight: 500;
+      font-size: 15.5px;
+      line-height: 1.5;
+    }
+    .list-q-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      color: var(--ink);
+      font-weight: 600;
+      font-size: 17px;
+      flex-shrink: 0;
+      min-width: 26px;
+    }
+    .list-q-done {
+      margin-left: auto;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      color: var(--ink);
+      letter-spacing: 1.5px;
+    }
+    .list-q .text-input { min-height: 60px; }
+    .list-cta { text-align: center; margin: 40px 0 0; }
+
+    /* ========== 结果页 ========== */
+    .result-page { animation: fadeIn 0.6s ease-out; }
+    .result-header {
+      margin: 56px 0 48px;
+      padding-bottom: 28px;
+      border-bottom: 1.5px solid var(--ink);
+    }
+    .result-eyebrow {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--ink);
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .result-eyebrow::before {
+      content: '';
+      width: 32px;
+      height: 1.5px;
+      background: var(--ink);
+    }
+    .result-title {
+      font-family: 'Noto Serif SC', serif;
+      font-weight: 900;
+      font-size: 44px;
+      line-height: 1.1;
+      margin: 0 0 12px;
+      letter-spacing: -1px;
+    }
+    .result-title .italic-en {
+      display: block;
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-weight: 500;
+      font-size: 22px;
+      color: var(--muted);
+      margin-top: 6px;
+    }
+    .result-lede {
+      font-size: 14.5px;
+      color: var(--ink-soft);
+      max-width: 540px;
+      line-height: 1.75;
+    }
+
+    .verdict {
+      background: var(--ink);
+      color: #fff;
+      padding: 56px 40px;
+      margin: 0 0 64px;
+    }
+    .verdict-tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10.5px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #fff;
+      margin-bottom: 24px;
+      opacity: 0.65;
+    }
+    .verdict-text {
+      font-family: 'Noto Serif SC', serif;
+      font-weight: 700;
+      font-size: 26px;
+      line-height: 1.55;
+      color: #fff;
+      margin: 0;
+      letter-spacing: -0.3px;
+    }
+    .verdict-text .accent { color: var(--what); }
+    .verdict-quote {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-weight: 600;
+      font-size: 38px;
+      color: var(--what);
+      line-height: 0;
+      vertical-align: -8px;
+      margin: 0 2px;
+    }
+
+    /* 三大支柱 */
+    .elements { margin: 0 0 56px; }
+    .element {
+      display: grid;
+      grid-template-columns: 4px 1fr;
+      gap: 0;
+      margin-bottom: 0;
+    }
+    .element-stripe {
+      background: var(--ink);
+    }
+    .element.why .element-stripe { background: var(--why); }
+    .element.how .element-stripe { background: var(--how); }
+    .element.what .element-stripe { background: var(--what); }
+    .element-inner {
+      padding: 24px 0 24px 24px;
+      border-top: 1.5px solid var(--ink);
+      border-bottom: 1.5px solid var(--ink);
+    }
+    .element.why .element-inner { border-top-color: var(--why); border-bottom-color: var(--why); }
+    .element.how .element-inner { border-top-color: var(--how); border-bottom-color: var(--how); }
+    .element.what .element-inner { border-top-color: var(--what); border-bottom-color: var(--what); }
+    .element-meta {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+    .element-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-weight: 600;
+      font-size: 28px;
+      line-height: 1;
+    }
+    .element.why .element-num { color: var(--why); }
+    .element.how .element-num { color: var(--how); }
+    .element.what .element-num { color: var(--what); }
+    .element-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10.5px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .element-title {
+      font-family: 'Noto Serif SC', serif;
+      font-weight: 700;
+      font-size: 14px;
+      margin: 0 0 8px;
+      color: var(--muted);
+      letter-spacing: 1px;
+    }
+    .element-text {
+      font-family: 'Noto Serif SC', serif;
+      font-size: 17px;
+      line-height: 1.65;
+      color: var(--ink);
+      margin: 0 0 14px;
+    }
+    .element-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .element-tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10.5px;
+      color: var(--ink);
+      letter-spacing: 0.5px;
+      padding: 4px 10px;
+      border: 1px solid var(--ink);
+    }
+    .element-tag.primary {
+      background: var(--ink);
+      color: #fff;
+      font-weight: 600;
+    }
+    .element.why .element-tag.primary { background: var(--why); border-color: var(--why); }
+    .element.how .element-tag.primary { background: var(--how); border-color: var(--how); }
+    .element.what .element-tag.primary { background: var(--what); border-color: var(--what); color: var(--ink); }
+
+    /* 其他可能 */
+    .alts { margin: 0 0 56px; }
+    .alts-title {
+      font-family: 'Noto Serif SC', serif;
+      font-weight: 700;
+      font-size: 18px;
+      margin: 0 0 20px;
+      display: flex;
+      align-items: baseline;
+      gap: 14px;
+    }
+    .alts-title .num {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-weight: 600;
+      font-size: 24px;
+      color: var(--ink);
+    }
+    .alt-item {
+      font-family: 'Noto Serif SC', serif;
+      font-size: 15.5px;
+      line-height: 1.7;
+      color: var(--ink);
+      padding: 16px 0;
+      border-top: 1px solid var(--line);
+      display: flex;
+      gap: 16px;
+    }
+    .alt-item:last-child { border-bottom: 1px solid var(--line); }
+    .alt-item::before {
+      content: '·';
+      color: var(--ink);
+      font-weight: 700;
+      font-size: 18px;
+    }
+
+    /* 画像 */
+    .portrait { margin: 0 0 56px; }
+    .portrait-title {
+      font-family: 'Noto Serif SC', serif;
+      font-weight: 700;
+      font-size: 18px;
+      margin: 0 0 20px;
+      display: flex;
+      align-items: baseline;
+      gap: 14px;
+    }
+    .portrait-title .num {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-weight: 600;
+      font-size: 24px;
+      color: var(--ink);
+    }
+    .portrait-text {
+      font-family: 'Noto Serif SC', serif;
+      font-size: 15.5px;
+      line-height: 1.95;
+      color: var(--ink-soft);
+      padding-left: 20px;
+      border-left: 1.5px solid var(--ink);
+    }
+    .portrait-text em {
+      font-style: normal;
+      color: var(--ink);
+      font-weight: 600;
+      border-bottom: 1.5px solid var(--what);
+    }
+
+    /* 约束 */
+    .constraint {
+      margin: 0 0 56px;
+      padding: 18px 22px;
+      background: var(--bg-alt);
+      font-size: 14px;
+      line-height: 1.75;
+      color: var(--ink-soft);
+      border-left: 4px solid var(--ink);
+    }
+    .constraint strong { color: var(--ink); }
+
+    /* 行动 */
+    .actions { margin: 0 0 56px; }
+    .actions-title {
+      font-family: 'Noto Serif SC', serif;
+      font-weight: 700;
+      font-size: 18px;
+      margin: 0 0 20px;
+      display: flex;
+      align-items: baseline;
+      gap: 14px;
+    }
+    .actions-title .num {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-weight: 600;
+      font-size: 24px;
+      color: var(--ink);
+    }
+    .action-item {
+      display: grid;
+      grid-template-columns: 100px 1fr;
+      gap: 20px;
+      padding: 24px 0;
+      border-top: 1px solid var(--line);
+    }
+    .action-item:last-child { border-bottom: 1px solid var(--line); }
+    .action-time {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10.5px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--ink);
+      padding-top: 2px;
+    }
+    .action-content strong {
+      display: block;
+      font-family: 'Noto Serif SC', serif;
+      font-weight: 700;
+      font-size: 15.5px;
+      margin-bottom: 6px;
+    }
+    .action-content span {
+      font-size: 14px;
+      color: var(--ink-soft);
+      line-height: 1.75;
+    }
+    .action-content em {
+      font-style: normal;
+      color: var(--ink);
+      font-weight: 600;
+    }
+
+    /* 结束语 */
+    .closing {
+      text-align: center;
+      margin: 64px 0 48px;
+      padding: 32px 0;
+      font-family: 'Noto Serif SC', serif;
+      font-size: 18px;
+      line-height: 1.7;
+      color: var(--ink);
+      border-top: 1.5px solid var(--ink);
+      border-bottom: 1.5px solid var(--ink);
+    }
+    .closing .italic-en {
+      display: block;
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 15px;
+      color: var(--muted);
+      margin-top: 8px;
+    }
+
+    .result-footer {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+      justify-content: center;
+      margin: 32px 0;
+    }
+
+    /* ========== 底部 ========== */
+    .signature {
+      margin-top: 72px;
+      padding-top: 24px;
+      border-top: 1.5px solid var(--ink);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .signature-text {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10.5px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--ink);
+    }
+    .signature-text .accent { color: var(--what); }
+
+    .bottom-note {
+      text-align: center;
+      margin-top: 24px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10.5px;
+      letter-spacing: 1.5px;
+      color: var(--muted);
+    }
+
+    .muted { color: var(--muted); }
+    .row { display: flex; gap: 8px; align-items: center; }
+    .spacer-16 { height: 16px; }
+    .spacer-24 { height: 24px; }
+    .fade-in { animation: fadeIn 0.5s ease-out; }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ========== 响应式 ========== */
+    @media (max-width: 760px) {
+      .container { padding: 0 20px 60px; }
+      .site-header { padding: 18px 20px; margin: 0 -20px 0; }
+      .hero { padding: 36px 0 0; }
+      .hero h1 { font-size: 42px; }
+      .hero h1 .italic-en { font-size: 22px; }
+      .hero-stats { gap: 20px; }
+      .btn-hero { padding: 20px 40px; font-size: 18px; min-width: 280px; }
+      .hero-stats--compact .hero-stat-num { font-size: 24px; }
+      .modules { grid-template-columns: 1fr; }
+      .module-block { border-right: none; border-bottom: 1.5px solid var(--ink); min-height: 100px; }
+      .module-block:last-child { border-bottom: none; }
+      .formula-equation { font-size: 20px; }
+      .formula-equation .op { font-size: 24px; }
+      .formula-equation .result { font-size: 24px; }
+      .mis-title { font-size: 34px; }
+      .mis-title .italic-en { font-size: 19px; }
+      .module-band { padding: 22px 20px; }
+      .q-content { padding: 32px 20px 0; }
+      .progress-section { padding: 22px 20px 20px; margin: 0 -20px 0; }
+      .progress-modules { font-size: 9.5px; }
+      .progress-num { font-size: 20px; }
+      .q-title { font-size: 22px; }
+      .q-footer { margin: 32px 20px 0; }
+      .result-title { font-size: 32px; }
+      .result-title .italic-en { font-size: 18px; }
+      .verdict { padding: 36px 24px; }
+      .verdict-text { font-size: 20px; }
+      .verdict-quote { font-size: 28px; }
+      .action-item { grid-template-columns: 1fr; gap: 6px; }
+    }
+    @media (max-width: 480px) {
+      .container { padding: 0 16px 48px; }
+      .site-header { padding: 16px 16px; margin: 0 -16px 0; }
+      .site-header .mode-toggle button { padding: 6px 10px; font-size: 9.5px; }
+      .hero h1 { font-size: 34px; }
+      .hero h1 .italic-en { font-size: 18px; }
+      .hero .lede { font-size: 14.5px; }
+      .hero-stats { gap: 14px; padding: 14px 0; }
+      .hero-stat-num { font-size: 18px; }
+      .hero-cta { margin: 24px auto 24px; }
+      .btn-hero { padding: 18px 24px; font-size: 17px; min-width: 0; width: 100%; gap: 12px; }
+      .hero-cta-meta { font-size: 10px; letter-spacing: 2px; }
+      .hero-stats--compact { padding: 16px 0; margin: 0 auto 40px; }
+      .hero-stats--compact .hero-stat-num { font-size: 20px; }
+      .hero-stats--compact .hero-stat-sep { height: 24px; }
+      .module-block { padding: 18px 16px; min-height: 80px; }
+      .mb-name { font-size: 26px; }
+      .mb-name-cn { font-size: 15px; }
+      .formula-section { margin-top: 56px; padding: 36px 0; }
+      .formula-equation { font-size: 17px; }
+      .formula-equation .op { font-size: 20px; }
+      .formula-equation .result { font-size: 20px; }
+      .mis-title { font-size: 26px; }
+      .mis-title .italic-en { font-size: 16px; }
+      .mis-num { font-size: 26px; }
+      .mis-body .mis-myth { font-size: 16px; }
+      .module-band { padding: 18px 16px; }
+      .band-letter { font-size: 24px; }
+      .q-content { padding: 24px 16px 0; }
+      .progress-section { padding: 18px 16px 16px; margin: 0 -16px 0; }
+      .progress-modules { font-size: 9px; letter-spacing: 0.5px; }
+      .progress-num { font-size: 18px; }
+      .progress-bar { height: 6px; }
+      .q-title { font-size: 19px; }
+      .q-hint { font-size: 12.5px; padding: 12px 14px; }
+      .q-footer { margin: 24px 16px 0; flex-wrap: wrap; gap: 12px; }
+      .q-nav { width: 100%; justify-content: space-between; }
+      .q-require-hint { font-size: 10.5px; }
+      .verdict { padding: 28px 18px; }
+      .verdict-text { font-size: 17px; }
+      .element-inner { padding: 18px 0 18px 16px; }
+      .element-text { font-size: 15px; }
+      .result-title { font-size: 24px; }
+      .closing { font-size: 15.5px; padding: 24px 0; }
+      .signature { flex-direction: column; align-items: flex-start; gap: 12px; }
+      .brand-name { font-size: 14px; }
+    }
+
+    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: var(--line); }
+  </style>
+</head>
+<body>
+  <div id="app"></div>
+
+  <script>
+  // ============================================================
+  // 找到想做的事 · Find Your Calling
+  // 八木仁平《如何找到想做的事》方法论实现
+  // ============================================================
+
+  // 来源：八木仁平《如何找到想做的事》附录 3 个 100 例清单
+  // 12 个标准标签（每个标签 20-30 个关键词，substring 匹配）
+  const VALUE_KEYWORDS = {
+    // ===== 自由系（挣脱约束、活出自我）=====
+    '自由': '自由', '独立': '自由', '自在': '自由', '洒脱': '自由',
+    '灵活': '自由', '变化': '自由', '多彩': '自由', '闲适': '自由',
+    '自主': '自由', '挣脱': '自由', '不受约束': '自由', '无拘': '自由',
+    '自立': '自由', '个体': '自由', '自我决定': '自由',
+    '不受限': '自由', '没人管': '自由', '无压力': '自由', '放松': '自由',
+    '逃离': '自由', '挣脱': '自由', '不被束缚': '自由',
+
+    // ===== 掌控系（自律、挑战、影响力）=====
+    '自律': '掌控', '挑战': '掌控', '冒险': '掌控', '影响': '掌控',
+    '权力': '掌控', '信念': '掌控', '拓展': '掌控', '决断': '掌控',
+    '克服': '掌控', '责任': '掌控', '义务': '掌控', '领导': '掌控',
+    '攻坚': '掌控', '难': '掌控', '问题': '掌控',
+    '意志': '掌控', '专注': '掌控', '坚持': '掌控', '坚定': '掌控',
+    '意志力': '掌控', '贯彻': '掌控', '尽全力': '掌控', '强': '掌控',
+    '达成': '掌控', '竞争': '掌控', '第一': '掌控', '胜': '掌控',
+    '钻研': '掌控', '掌控自己': '掌控', '认真': '掌控', '勤奋': '掌控',
+
+    // ===== 真诚系（真实、不伪装）=====
+    '真诚': '真诚', '诚实': '真诚', '真实': '真诚', '谦逊': '真诚',
+    '原本': '真诚', '信赖': '真诚', '信用': '真诚', '不撒谎': '真诚',
+    '真理': '真诚', '正义': '真诚', '信任': '真诚', '传统': '真诚',
+    '美德': '真诚', '道德': '真诚', '不做作': '真诚', '保持本色': '真诚',
+    '尊重': '真诚', '谦卑': '真诚', '谦虚': '真诚', '低调': '真诚',
+    '尊重他人': '真诚', '守约': '真诚', '约定': '真诚', '正确': '真诚',
+    '不骗': '真诚', '坦率': '真诚', '坦白': '真诚', '正直': '真诚',
+
+    // ===== 连接系（关系、爱、亲密）=====
+    '友情': '连接', '亲密': '连接', '爱': '连接', '关怀': '连接',
+    '同情': '连接', '伙伴': '连接', '家人': '连接', '家族': '连接',
+    '宽容': '连接', '开放': '连接', '联结': '连接', '联系': '连接',
+    '关系': '连接', '群体': '连接', '友谊': '连接', '归属': '连接',
+    '爱与被爱': '连接', '陪伴': '连接', '拥抱': '连接', '团队': '连接',
+    '家庭': '连接', '被理解': '连接', '被接纳': '连接', '被看见': '连接',
+    '连接感': '连接', '共同体': '连接', '社交': '连接', '同伴': '连接',
+
+    // ===== 助人系（贡献、服务、奉献）=====
+    '贡献': '助人', '助人': '助人', '帮助': '助人', '社会': '助人',
+    '和平': '助人', '公益': '助人', '牺牲': '助人', '奉献': '助人',
+    '照料': '助人', '同情心': '助人', '给予': '助人',
+    '照顾': '助人', '为他人': '助人', '付出': '助人',
+    '服务': '助人', '志愿': '助人', '慈善': '助人', '救人': '助人',
+
+    // ===== 成长系（学习、发现、进步）=====
+    '成长': '成长', '发现': '成长', '钻研': '成长', '学习': '成长',
+    '创造': '成长', '创新': '成长', '探索': '成长', '好奇': '成长',
+    '好奇心': '成长', '知识': '成长', '智慧': '成长', '提升': '成长',
+    '进步': '成长', '发展': '成长', '改进': '成长',
+    '寻找': '成长', '突破': '成长', '改变': '成长',
+    '上进': '成长', '求知': '成长', '钻研精神': '成长',
+    '新事物': '成长', '冒险': '成长', '尝试': '成长',
+    '了解': '成长', '认知': '成长', '认识': '成长', '本质': '成长',
+
+    // ===== 美感系（美、幽默、享受）=====
+    '美': '美感', '审美': '美感', '幽默': '美感', '享受': '美感',
+    '享乐': '美感', '当下': '美感', '美感': '美感', '设计': '美感',
+    '艺术': '美感', '魅力': '美感', '优雅': '美感',
+    '活在当下': '美感', '体验': '美感', '玩': '美感',
+    '快乐': '美感', '好玩': '美感', '有趣': '美感', '开心': '美感',
+    '玩耍': '美感', '享受生活': '美感', '美感': '美感', '漂亮的': '美感',
+    '美丽': '美感', '风趣': '美感', '开玩笑': '美感', '逗人笑': '美感',
+
+    // ===== 意义系（目的、价值、哲学）=====
+    '目的': '意义', '意义': '意义', '自我认知': '意义', '哲学': '意义',
+    '思考': '意义', '领悟': '意义', '本质': '意义', '领会': '意义',
+    '深思': '意义', '方向': '意义', '价值': '意义',
+    '思考意义': '意义', '意义感': '意义', '真理': '意义',
+    '价值': '意义', '愿景': '意义', '使命': '意义', '反思': '意义',
+
+    // ===== 安稳系（健康、安全、平静）=====
+    '安心': '安稳', '健康': '安稳', '安稳': '安稳', '安定': '安稳',
+    '稳定': '安稳', '安全': '安稳', '平静': '安稳', '平和': '安稳',
+    '踏实': '安稳', '体魄': '安稳', '养生': '安稳',
+    '安全感': '安稳', '身体好': '安稳', '平和的心': '安稳',
+    '健身': '安稳', '锻炼': '安稳', '作息': '安稳', '规律': '安稳',
+
+    // ===== 秩序系（公平、规则、合作）=====
+    '秩序': '秩序', '公平': '秩序', '规则': '秩序', '调和': '秩序',
+    '合作': '秩序', '慎重': '秩序', '计划': '秩序',
+    '平等': '秩序', '守规矩': '秩序', '团队协作': '秩序',
+    '标准化': '秩序', '规范化': '秩序', '公正': '秩序',
+    '协作': '秩序', '遵守': '秩序', '约定': '秩序',
+
+    // ===== 热情系（活力、浪漫、激情）=====
+    '热情': '热情', '活力': '热情', '幸福': '热情', '浪漫': '热情',
+    '兴奋': '热情', '激情': '热情',
+    '感情': '热情', '感动': '热情', '幸福感': '热情',
+    '喜悦': '热情', '浪漫': '热情', '恋爱': '热情',
+
+    // ===== 认可系（成功、名声、表现）=====
+    '成功': '认可', '名誉': '认可', '名声': '认可', '富裕': '认可',
+    '地位': '认可', '表现': '认可', '专业': '认可', '有名': '认可',
+    '发挥': '认可', '认可': '认可', '称赞': '认可', '敬佩': '认可',
+    '被看见': '认可', '被尊重': '认可', '声望': '认可', '财富': '认可',
+    '有钱': '认可', '物质': '认可', '富足': '认可',
+
+    // ===== q3 反向映射（多选题"不能忍受"）=====
+    '虚情假意': '真诚', '虚伪': '真诚', '表演': '真诚',
+    '被强迫': '自由', '高压': '自由', '压制': '自由',
+    '无聊重复': '乐趣', '枯燥': '乐趣', '单调': '乐趣',
+    '无人关心': '连接', '冷漠': '连接', '疏离': '连接',
+    '没有意义': '意义', '虚无': '意义',
+    '攀比炫耀': '真诚', '炫耀': '真诚', '虚荣': '真诚',
+    '墨守成规': '成长', '僵化': '成长',
+    '失去自由': '自由', '孤独': '连接',
+    '停滞不前': '成长', '停滞': '成长',
+    '虚伪表演': '真诚', '没有成长': '成长',
+  };
+  const TALENT_KEYWORDS = {
+    '写作': '写作', '写': '写作', '文字': '写作', '文章': '写作', '写文': '写作',
+    '讲': '讲解', '讲解': '讲解', '说': '讲解', '说话': '讲解', '表达': '讲解',
+    '听': '倾听', '倾听': '倾听', '聆听': '倾听',
+    '提问': '提问', '问': '提问',
+    '说服': '说服', '影响': '说服', '谈判': '说服',
+    '分析': '分析', '拆解': '分析', '归因': '分析', '诊断': '分析',
+    '思考': '深度思考', '想': '深度思考', '琢磨': '深度思考',
+    '研究': '研究', '探索': '研究', '挖掘': '研究',
+    '观察': '观察', '看': '观察',
+    '设计': '设计', '美感': '设计',
+    '创造': '创造', '做东西': '创造', '动手': '创造',
+    '构想': '创造', '想出新点子': '创造',
+    '策划': '策划', '规划': '策划', '计划': '策划',
+    '点子': '创造', '想法': '创造',
+    '构建': '构建体系', '整理': '构建体系', '归纳': '构建体系', '总结': '构建体系',
+    '传授': '传授', '教': '传授', '传递': '传授', '传播': '传授',
+    '体系': '构建体系', '结构化': '构建体系',
+    '陪伴': '陪伴', '支持': '陪伴',
+    '鼓励': '陪伴', '安慰': '陪伴',
+    '共情': '共情', '理解别人': '共情', '感受别人': '共情',
+    '引导': '引导', '启发': '引导', '引导别人想': '引导',
+    '激发': '激发', '点燃': '激发', '激励': '激发',
+    '组织': '组织', '协调': '组织', '安排': '组织',
+    '推进': '推进', '执行': '推进', '落地': '推进',
+    '管理': '管理', '统筹': '管理',
+    '视觉': '视觉化', '画': '视觉化', '视觉化': '视觉化',
+    '数据': '数据分析',
+    '编程': '技术实现', '写代码': '技术实现',
+    '做': '动手', '实操': '动手',
+  };
+  const INTEREST_KEYWORDS = {
+    '自我认知': '自我认知', '认知': '自我认知', '自我': '自我认知',
+    '心理学': '心理学', '心理': '心理学', '心智': '心理学',
+    '教育': '教育', '教学': '教育', '老师': '教育', '学生': '教育',
+    '文学': '文学', '小说': '文学', '散文': '文学', '诗歌': '文学',
+    '写作': '写作', '写文章': '写作', '写作表达': '写作',
+    '设计': '设计', '平面设计': '设计', 'UI': '设计', 'UX': '设计',
+    '艺术': '艺术', '绘画': '艺术', '画': '艺术',
+    '摄影': '摄影', '拍照': '摄影', '影像': '摄影',
+    '音乐': '音乐', '唱歌': '音乐', '乐器': '音乐',
+    '电影': '电影', '影像': '电影', '影视': '电影',
+    '科技': '科技', '技术': '科技',
+    '编程': '编程', '写代码': '编程', '程序': '编程',
+    'AI': 'AI', '人工智能': 'AI', '机器学习': 'AI',
+    '商业': '商业', '创业': '创业', '公司': '商业',
+    '投资': '投资', '理财': '投资', '金融': '投资',
+    '健康': '健康', '健身': '健康', '运动': '健康', '身体': '健康',
+    '医疗': '医疗', '医生': '医疗', '医院': '医疗',
+    '饮食': '饮食', '美食': '饮食', '烹饪': '饮食', '做菜': '饮食',
+    '育儿': '育儿', '孩子': '育儿', '亲子': '育儿', '教育孩子': '育儿',
+    '关系': '关系', '亲密关系': '关系', '感情': '关系', '恋爱': '关系',
+    '沟通': '沟通', '对话': '沟通', '交流': '沟通',
+    '社会': '社会', '公益': '社会', '社会议题': '社会',
+    '环境': '环境', '自然': '自然', '生态': '环境', '动物': '自然',
+    '旅行': '旅行', '旅游': '旅行', '在路上': '旅行',
+    '文化': '文化', '历史': '文化', '人文': '文化',
+    '哲学': '哲学', '思辨': '哲学', '思考': '哲学',
+    '游戏': '游戏', '电子游戏': '游戏',
+    '时尚': '时尚', '穿搭': '时尚', '服装': '时尚',
+    '生活方式': '生活方式', '生活': '生活方式',
+    '咖啡': '生活方式', '茶': '生活方式',
+    '手作': '创造', '手工': '创造',
+    '建筑': '设计', '空间': '设计',
+  };
+  const TALENT_TEMPLATES = {
+    '写作': (i) => `${i}领域的写作者`,
+    '讲解': (i) => `把${i}讲清楚的讲解者`,
+    '传授': (i) => `${i}的传授者`,
+    '倾听': (i) => `一对一倾听${i}相关的人`,
+    '提问': (i) => `用提问帮${i}相关的人想清楚`,
+    '说服': (i) => `为${i}相关的事说服和影响他人`,
+    '分析': (i) => `${i}领域的分析师`,
+    '深度思考': (i) => `深度思考${i}本质的人`,
+    '研究': (i) => `${i}领域的研究者`,
+    '观察': (i) => `观察${i}相关的人和事`,
+    '设计': (i) => `${i}的设计者`,
+    '创造': (i) => `${i}的创造者`,
+    '动手': (i) => `动手做${i}相关的事`,
+    '策划': (i) => `${i}相关的策划者`,
+    '构建体系': (i) => `构建${i}体系并传授给别人`,
+    '陪伴': (i) => `陪伴${i}相关的人`,
+    '共情': (i) => `深度共情${i}相关的人`,
+    '引导': (i) => `引导${i}相关的人探索自己`,
+    '激发': (i) => `激发${i}相关的人的灵感`,
+    '组织': (i) => `${i}领域的组织者`,
+    '推进': (i) => `${i}领域的执行推进者`,
+    '管理': (i) => `${i}领域的管理者`,
+    '视觉化': (i) => `把${i}变成视觉`,
+    '数据分析': (i) => `用数据看${i}`,
+    '技术实现': (i) => `${i}领域的技术实现者`,
+  };
+  const PURPOSE_TEMPLATES = {
+    '热情': '让更多人能热爱自己正在做的事',
+    '成长': '让成长变得更轻松、更有方向',
+    '自由': '让每个人都能按自己的方式生活',
+    '连接': '让人与人之间建立更真实的连接',
+    '审美': '让美融入更多人的日常',
+    '好奇': '让探索和好奇成为生活的一部分',
+    '助人': '让需要帮助的人不再孤立无援',
+    '真诚': '让世界少一些表演，多一些真实',
+    '意义': '让每一天都更有分量',
+    '自在': '让每个人都能在自己的节奏里',
+    '创造': '让创造成为每个人的可能',
+    '掌控': '让人们重新拿回生活的主导权',
+    '乐趣': '让生活重新变得好玩',
+    '安稳': '让人们不用再为生存焦虑',
+    '富足': '让更多人实现物质与精神的富足',
+    '认可': '让认真做事的人被看见',
+    '简单': '让生活回归简单',
+  };
+  const QUESTIONS = [
+    { id: 'q1', module: 'values', moduleLabel: '重要的事 · Why', moduleLetter: 'Why',
+      title: '你最尊敬/羡慕的人是谁？他身上你向往的是什么？',
+      type: 'text',
+      placeholder: '可以是一个具体的人、一个故事里的角色、或一种状态。\n他/她的哪些特质让你向往？',
+      hint: '关键是<strong>特质</strong>，不是"他做的事"。因为他做的事是他的"想做的事"，不是你的。' },
+    { id: 'q2', module: 'values', moduleLabel: '重要的事 · Why', moduleLetter: 'Why',
+      title: '现在让你对社会/某些事感到愤怒或不满的是什么？',
+      type: 'text',
+      placeholder: '愤怒背后是你心中的"理想世界"。\n是什么让你觉得"不应该这样"？',
+      hint: '反向提取——你愤怒的事越激烈，说明背后的理想越强烈。' },
+    { id: 'q3', module: 'values', moduleLabel: '重要的事 · Why', moduleLetter: 'Why',
+      title: '以下哪些状态是你最不能忍受的？',
+      type: 'multi', max: 5,
+      hint: '勾选最多 5 个。它们的反义词就是你的价值观。',
+      options: ['虚情假意', '被强迫/高压', '无聊重复', '无人关心', '没有意义', '攀比炫耀', '墨守成规', '失去自由', '孤独', '停滞不前', '虚伪表演', '没有成长'] },
+    { id: 'q4', module: 'values', moduleLabel: '重要的事 · Why', moduleLetter: 'Why',
+      title: '什么事情/概念/状态曾经"拯救"过你，让你豁然开朗？',
+      type: 'text',
+      placeholder: '可以是一个很小的瞬间。\n比如"读到某句话""理解某个概念""被某个人接纳"。',
+      hint: '被拯救的状态里藏着你的价值观。比如被"真诚"拯救、被"自由"拯救。' },
+    { id: 'q5', module: 'values', moduleLabel: '重要的事 · Why', moduleLetter: 'Why',
+      title: '你最想成为的"状态"是什么？（不是想成为的人）',
+      type: 'multi', max: 3,
+      hint: '职业是"想成为的人"，状态是"想活成的样子"。可以选 3 个以内。',
+      options: ['自由/独立', '安稳/踏实', '充满热情', '不断成长', '内心平和', '享受美', '充满好奇', '简单朴素', '与人深度连接', '被尊重/认可', '帮助他人', '有掌控感', '有创造力', '自在洒脱', '富足', '快乐有趣'] },
+    { id: 'q6', module: 'talents', moduleLabel: '擅长的事 · How', moduleLetter: 'How',
+      title: '什么事你做的时候会"忘记时间"、"觉得是在做自己"？',
+      type: 'text',
+      placeholder: '具体到子环节。\n比如"写到某个词突然通了"、"帮人想通一件事的瞬间"。',
+      hint: '做擅长的事会感到轻松和喜悦，越做越精神。这里藏着你的"做事方式"。' },
+    { id: 'q7', module: 'talents', moduleLabel: '擅长的事 · How', moduleLetter: 'How',
+      title: '什么事让你对别人感到烦躁？"为什么这么简单的事别人做不到"',
+      type: 'text',
+      placeholder: '你感到烦躁的事，往往就是你擅长的事。\n比如"对方连基本的逻辑都不理"、"讲了三遍还是没懂"。',
+      hint: '反推法：你越觉得理所当然的事，越说明你擅长。' },
+    { id: 'q8', module: 'talents', moduleLabel: '擅长的事 · How', moduleLetter: 'How',
+      title: '朋友/同事经常找你帮忙的事是什么？',
+      type: 'text',
+      placeholder: '哪怕是"听我吐槽""帮选个东西""帮我看看逻辑"也算。\n（这是你的能力信号）',
+      hint: '别人找你帮的事就是你无意识中擅长的事。' },
+    { id: 'q9', module: 'talents', moduleLabel: '擅长的事 · How', moduleLetter: 'How',
+      title: '过去的工作/学习中，有没有让你留恋的部分？',
+      type: 'text',
+      placeholder: '哪怕是很小的环节。\n"喜欢写报告"、"喜欢和客户深聊"、"喜欢拆解复杂问题"…',
+      hint: '留恋的不是工作整体，是某个环节——那是你擅长的具体做事方式。' },
+    { id: 'q10', module: 'talents', moduleLabel: '擅长的事 · How', moduleLetter: 'How',
+      title: '别人夸过你什么？什么事你没怎么付出却被表扬？',
+      type: 'text',
+      placeholder: '"你讲话好清楚"、"你总能看穿我"、"你做的方案特别有美感"…\n（被夸的事就是你的"无意识长处"）',
+      hint: '把"所以…"换成"正因为…"——你那些"无意识的能力"才是真正的长处。' },
+    { id: 'q11', module: 'interests', moduleLabel: '喜欢的事 · What', moduleLetter: 'What',
+      title: '现在花钱也想学/想了解的领域是什么？',
+      type: 'text',
+      placeholder: '哪怕和现在工作无关。\n（这种冲动最真实——"花钱也想学"是最纯粹的兴趣）',
+      hint: '"花钱也想学"是纯粹的兴趣信号，区分于"为了工作而学"。' },
+    { id: 'q12', module: 'interests', moduleLabel: '喜欢的事 · What', moduleLetter: 'What',
+      title: '在书店/刷内容时，你会在哪个领域停留最久？',
+      type: 'text',
+      placeholder: '不是"有用的"，是"不知为何很在意"的。\n具体是哪一类书/账号/话题？',
+      hint: '"因为有用所以在意"≠"喜欢"。"不知为何很在意"才是真正的兴趣。' },
+    { id: 'q13', module: 'interests', moduleLabel: '喜欢的事 · What', moduleLetter: 'What',
+      title: '哪个领域/知识"拯救"过你？',
+      type: 'text',
+      placeholder: '比如"心理学拯救了我"、"设计拯救了我"、"商业思维拯救了我"。',
+      hint: '被某个领域拯救过的人，会对那个领域保持长期热情。' },
+    { id: 'q14', module: 'interests', moduleLabel: '喜欢的事 · What', moduleLetter: 'What',
+      title: '你最想感谢/道谢"职业/工作"是什么？',
+      type: 'text',
+      placeholder: '哪些职业让你觉得"被帮助过"？\n（这个问题的答案，就是你想从事的领域）',
+      hint: '想感谢的工作 = 那个领域里你看到过想成为的样子。' },
+    { id: 'q15', module: 'interests', moduleLabel: '喜欢的事 · What', moduleLetter: 'What',
+      title: '什么事情让你产生"为什么会这样/怎么办"的疑问，忍不住想搞懂？',
+      type: 'text',
+      placeholder: '比如"为什么人会迷茫"、"为什么设计能影响心情"、"为什么有些商业模式能跑通"。',
+      hint: '好奇心是兴趣的最佳指标。' },
+    { id: 'q16', module: 'constraint', moduleLabel: '现实拼图', moduleLetter: '·',
+      title: '你现在的硬约束是什么？',
+      type: 'multi', max: 3,
+      hint: '多选 + 自由补充。我们会记住它，但不会用它限制你的"想做的事"。',
+      options: ['需要稳定收入', '家庭/孩子责任', '城市/地域限制', '学历背景', '年龄', '健康/体力', '签证/身份'],
+      custom: '其他约束...', allowCustom: true, optional: true },
+    { id: 'q17', module: 'constraint', moduleLabel: '现实拼图', moduleLetter: '·',
+      title: '5 年后最理想的一天，写出 3 个画面',
+      type: 'text',
+      placeholder: '比如：\n· 早上在…，做…\n· 下午在…，和谁…\n· 晚上在…，感觉…',
+      hint: '可选填。写得越具体越好，但别卡住——感觉对了就继续。', optional: true },
+  ];
+
+  function extractKeywords(text, dict, applyNegation = true) {
+    if (!text || typeof text !== 'string') return [];
+    const found = [];
+    Object.entries(dict).forEach(([keyword, mapped]) => {
+      let searchStart = 0;
+      let counted = false;
+      while (!counted) {
+        const idx = text.indexOf(keyword, searchStart);
+        if (idx === -1) break;
+        if (!applyNegation || !hasNegationContext(text, idx)) {
+          found.push(mapped);
+          counted = true;
+        }
+        searchStart = idx + keyword.length;
+      }
+    });
+    return found;
+  }
+  // ==================== 否定词过滤 ====================
+  // 在关键词前 3 个字符内出现否定模式 → 视为否定语境，跳过该关键词
+  // 设计取舍：只匹配"语法级否定"（不/没/无/别 + 情态词），不匹配情感动词
+  // 因为"讨厌/恨/烦"后面的概念往往是用户反对的（反对虚伪=想要真诚），反向信号该被算入
+  // 例："我不想自由" → "自由" 被跳过；"我讨厌虚伪" → "虚伪" 仍计入（→ 真诚）
+  const NEGATION_RADIUS = 3;
+  const NEGATION_PATTERNS = [
+    '不想', '不愿', '不要', '不能', '不会', '不曾', '没法', '不会',
+    '无法', '绝不', '从不', '不必',
+    '不', '别', '没', '无', '非', '莫', '勿',
+  ];
+  function hasNegationContext(text, keywordIdx) {
+    if (keywordIdx <= 0) return false;
+    const start = Math.max(0, keywordIdx - NEGATION_RADIUS);
+    const before = text.substring(start, keywordIdx);
+    return NEGATION_PATTERNS.some(p => before.endsWith(p));
+  }
+  function countItems(arr) { return arr.reduce((m, item) => { m[item] = (m[item] || 0) + 1; return m; }, {}); }
+  function topN(counter, n = 5) {
+    return Object.entries(counter).filter(([k]) => k).sort((a, b) => b[1] - a[1]).slice(0, n).map(([k]) => k);
+  }
+  function extractValues(answers) {
+    const all = [];
+    // q2 是"愤怒什么"——用户写的负面词=反对的事，词典已映射到正面价值观，跳过否定过滤
+    [answers.q1, answers.q4].forEach(t => { all.push(...extractKeywords(t, VALUE_KEYWORDS, true)); });
+    if (answers.q2) all.push(...extractKeywords(answers.q2, VALUE_KEYWORDS, false));
+    if (Array.isArray(answers.q3)) answers.q3.forEach(opt => { if (VALUE_KEYWORDS[opt]) all.push(VALUE_KEYWORDS[opt]); });
+    if (Array.isArray(answers.q5)) answers.q5.forEach(opt => { if (VALUE_KEYWORDS[opt]) all.push(VALUE_KEYWORDS[opt]); });
+    return topN(countItems(all), 5);
+  }
+  function extractTalents(answers) {
+    const all = [];
+    // q7 是"对别人烦躁"——反推法：别人做不到的事就是我擅长的，跳过否定过滤
+    [answers.q6, answers.q8, answers.q9, answers.q10].forEach(t => { all.push(...extractKeywords(t, TALENT_KEYWORDS, true)); });
+    if (answers.q7) all.push(...extractKeywords(answers.q7, TALENT_KEYWORDS, false));
+    return topN(countItems(all), 5);
+  }
+  function extractInterests(answers) {
+    const all = [];
+    [answers.q11, answers.q12, answers.q13, answers.q14, answers.q15].forEach(t => { all.push(...extractKeywords(t, INTEREST_KEYWORDS, true)); });
+    return topN(countItems(all), 5);
+  }
+  function analyze(answers) {
+    const values = extractValues(answers);
+    const talents = extractTalents(answers);
+    const interests = extractInterests(answers);
+    const topValue = values[0] || '热情';
+    const topTalent = talents[0] || '写作';
+    const topInterest = interests[0] || '自我认知';
+    const vocation = composeVocation(topInterest, topTalent);
+    const workPurpose = PURPOSE_TEMPLATES[topValue] || PURPOSE_TEMPLATES['热情'] || '让更多人活出自己';
+    const trueVocation = `${vocation}，${workPurpose}`;
+    const portrait = generatePortrait(answers, values, talents, interests, workPurpose, vocation);
+    const actions = generateActions(answers, vocation, workPurpose, topInterest);
+    const alternatives = generateAlternatives(interests, talents);
+    return { values, talents, interests, topValue, topTalent, topInterest, vocation, workPurpose, trueVocation, portrait, actions, alternatives };
+  }
+  function composeVocation(interest, talent) {
+    if (TALENT_TEMPLATES[talent]) return TALENT_TEMPLATES[talent](interest);
+    return `用${talent}的方式做${interest}相关的事`;
+  }
+  function generateAlternatives(interests, talents) {
+    const alternatives = [];
+    const combos = [];
+    if (interests[1] && talents[0]) combos.push([interests[1], talents[0]]);
+    if (interests[0] && talents[1]) combos.push([interests[0], talents[1]]);
+    if (interests[1] && talents[1]) combos.push([interests[1], talents[1]]);
+    combos.slice(0, 2).forEach(([i, t]) => { try { alternatives.push({ interest: i, talent: t, text: composeVocation(i, t) }); } catch (e) {} });
+    return alternatives;
+  }
+  function pickSnippet(text, fallback = '', max = 50) {
+    if (!text) return fallback;
+    const cleaned = String(text).replace(/\s+/g, ' ').trim();
+    if (cleaned.length <= max) return cleaned;
+    return cleaned.slice(0, max) + '…';
+  }
+  function generatePortrait(answers, values, talents, interests, purpose, vocation) {
+    const lines = [];
+    const admire = (answers.q1 || '').trim();
+    const anger = (answers.q2 || '').trim();
+    const saved = (answers.q4 || '').trim();
+    const flowDetail = (answers.q6 || '').trim();
+    const helping = (answers.q8 || '').trim();
+    const praised = (answers.q10 || '').trim();
+    const savedInterest = (answers.q13 || '').trim();
+    if (values.length > 0) lines.push(`你身上最稳的信号是<em>${values.slice(0, 3).join('、')}</em>。`);
+    if (admire) lines.push(`你提到尊敬的<em>${pickSnippet(admire, '那个人', 30)}</em>——这种尊敬通常反映你内心还没活出来的部分。`);
+    if (talents.length > 0) {
+      const flowSnippet = pickSnippet(flowDetail, '');
+      lines.push(`你擅长的事（<em>${talents[0]}</em>相关）有具体证据：${flowSnippet ? `比如${flowSnippet}——` : ''}这些是你"无意识就能做到的事"。`);
+    }
+    if (helping || praised) {
+      const parts = [];
+      if (helping) parts.push(`别人找你帮的事是<em>${pickSnippet(helping, '', 25)}</em>`);
+      if (praised) parts.push(`别人夸过你<em>${pickSnippet(praised, '', 25)}</em>`);
+      lines.push(`外部验证：${parts.join('；')}。这些不是"应该擅长"的，而是你"已经在做得好"的。`);
+    }
+    if (interests.length > 0) {
+      const savedIntSnippet = pickSnippet(savedInterest, '');
+      lines.push(`你真正感兴趣的领域（<em>${interests[0]}</em>）不是"应该学的"，而是${savedIntSnippet ? `曾经${savedIntSnippet}拯救过你——` : ''}一种"不知为何很在意"的领域。`);
+    }
+    if (anger) lines.push(`你对<em>${pickSnippet(anger, '某些事', 30)}</em>感到不满——这种不满背后是你心中的理想状态，也是你"想做的事"的客户。`);
+    lines.push(`把这三个支柱组合起来：你的<em>${vocation}</em>是做事的方式，背后的目的是<em>${purpose}</em>——这就是你的"真正想做的事"。`);
+    return lines.join('\n\n');
+  }
+  function generateActions(answers, vocation, purpose, topInterest) {
+    return [
+      { time: '本周', title: `做一件"${vocation.slice(0, 14)}…"相关的最小事`,
+        text: `哪怕 30 分钟。<em>让身体重新记住这件事的质感</em>——不需要赚钱、不需要给别人看。` },
+      { time: '这个月', title: `找到同领域的 1 个人聊一次`,
+        text: `<em>不是去求建议，是去验证</em>。告诉 ta 你想做的事，听 ta 的反应。你会从 ta 的"表情"里看到这个东西是不是真的对。` },
+      { time: '这个季度', title: `为"${topInterest}"做一次 2-4 周的小实验`,
+        text: `<em>不是正式选择，是测试</em>。一个迷你项目、一篇深度文章、一个小课程——"我到底喜不喜欢"只有在"真做了一点"之后才知道。` },
+    ];
+  }
+
+  const MISCONCEPTIONS = [
+    { label: '必须是能坚持一生的事',
+      fact: '做"现在最想做的事"就够了。时代会变，你也会变，"一生不变"反而危险。',
+      clarify: '不必被"一辈子"吓退' },
+    { label: '找到时会有"命中注定"的感觉',
+      fact: '大多数时候只是"挺有趣"——感觉会慢慢来。一开始就击中感，可能只是错觉。',
+      clarify: '"有趣"就够了' },
+    { label: '必须是对别人有益的事',
+      fact: '为自己而活也是在帮助别人。牺牲式的"想做的事"最多撑 3 年。',
+      clarify: '先利己' },
+    { label: '必须多行动才能找到',
+      fact: '选项太多反而选不出。先了解自己建立"选择标准"，再用标准去筛——这是顺序。',
+      clarify: '顺序 ≠ 行动量' },
+    { label: '想做的事不能成为工作',
+      fact: '"想做的事"在心里，"实现手段"在社会。先定方向，再找手段；不要倒过来。',
+      clarify: '方向与手段分开' },
+  ];
+
+  // ==================== SVG 资源 ====================
+  const SVG_LOGO = `
+    <svg class="brand-mark" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="0" y="0" width="26" height="26" fill="#0a0a0a"/>
+      <rect x="4" y="4" width="6" height="6" fill="#E5322D"/>
+      <rect x="10" y="4" width="6" height="6" fill="#0046C8"/>
+      <rect x="16" y="4" width="6" height="6" fill="#F4B400"/>
+      <rect x="4" y="16" width="18" height="6" fill="#ffffff"/>
+    </svg>
+  `;
+
+  // ==================== 状态 ====================
+  const STORAGE_KEY = 'find-your-thing-v5';
+  const state = { view: 'welcome', currentIdx: 0, mode: 'dialogue', answers: {} };
+
+  function loadState() {
+    try {
+      const saved = localStorage.getItem(STORAGE_KEY);
+      if (saved) {
+        const parsed = JSON.parse(saved);
+        state.answers = parsed.answers || {};
+        state.view = parsed.view || 'welcome';
+        state.currentIdx = parsed.currentIdx || 0;
+        state.mode = parsed.mode || 'dialogue';
+      }
+    } catch (e) {}
+  }
+  function saveState() {
+    try { localStorage.setItem(STORAGE_KEY, JSON.stringify({ view: state.view, currentIdx: state.currentIdx, mode: state.mode, answers: state.answers })); } catch (e) {}
+  }
+
+  const app = document.getElementById('app');
+  function render() {
+    saveState();
+    if (state.view === 'welcome') app.innerHTML = renderWelcome();
+    else if (state.view === 'misconceptions') app.innerHTML = renderMisconceptions();
+    else if (state.view === 'dialogue') app.innerHTML = renderDialogue();
+    else if (state.view === 'list') app.innerHTML = renderList();
+    else if (state.view === 'result') app.innerHTML = renderResult();
+    attachEvents();
+  }
+  function answeredCount() {
+    return Object.keys(state.answers).filter(k => {
+      const v = state.answers[k];
+      if (Array.isArray(v)) return v.length > 0;
+      return v && v.trim && v.trim().length > 0;
+    }).length;
+  }
+  function answeredQ(qid) {
+    const v = state.answers[qid];
+    if (!v) return false;
+    if (Array.isArray(v)) return v.length > 0;
+    return v.trim && v.trim().length > 0;
+  }
+
+  // ==================== Header ====================
+  function renderHeader(extra = '') {
+    const showMode = state.view !== 'welcome' && state.view !== 'misconceptions';
+    return `
+      <div class="site-header">
+        <div class="brand" id="brandHome">
+          ${SVG_LOGO}
+          <div class="brand-text">
+            <span class="brand-name">找到想做的事</span>
+            <span class="brand-sub">Find Your Calling</span>
+          </div>
+        </div>
+        ${showMode ? `
+          <div class="mode-toggle" id="modeToggle">
+            <button data-mode="dialogue" class="${state.mode==='dialogue'?'active':''}">对话</button>
+            <button data-mode="list" class="${state.mode==='list'?'active':''}">列表</button>
+          </div>
+        ` : ''}
+      </div>
+      <div class="container fade-in">${extra}</div>
+    `;
+  }
+
+  // ==================== 进度 ====================
+  function renderProgress() {
+    const total = QUESTIONS.length;
+    const done = QUESTIONS.filter(q => answeredQ(q.id)).length;
+    const pct = Math.round((done / total) * 100);
+    let segs = '';
+    QUESTIONS.forEach((q, i) => {
+      const isDone = answeredQ(q.id);
+      const isCurrent = i === state.currentIdx && state.view === 'dialogue';
+      let cls = `progress-seg ${q.module}`;
+      if (isDone) cls += ' done';
+      if (isCurrent) cls += ' current';
+      segs += `<div class="${cls}"></div>`;
+    });
+    const moduleState = (start, end) => {
+      if (done >= end) return 'done';
+      if (state.currentIdx >= start && state.currentIdx < end) return 'active';
+      return '';
+    };
+    const ms = [
+      { key: 'why', label: '重要', mod: 'why', state: moduleState(0, 5) },
+      { key: 'how', label: '擅长', mod: 'how', state: moduleState(5, 10) },
+      { key: 'what', label: '喜欢', mod: 'what', state: moduleState(10, 15) },
+      { key: 'c', label: '拼图', mod: 'constraint', state: moduleState(15, 17) },
+    ];
+    return `
+      <div class="progress-section">
+        <div class="progress-meta">
+          <span class="progress-eyebrow">答题进度</span>
+          <span class="progress-count"><span class="progress-num">${done}</span><span class="progress-total"> / ${total}</span></span>
+        </div>
+        <div class="progress-bar">${segs}</div>
+        <div class="progress-modules">
+          ${ms.map(m => `<span class="pm-item pm-${m.key} ${m.state}">${m.label}</span>`).join('')}
+        </div>
+      </div>
+    `;
+  }
+
+  // ==================== 欢迎页 ====================
+  function renderWelcome() {
+    const hasProgress = answeredCount() > 0;
+    return renderHeader(`
+      <div class="welcome">
+        <section class="hero hero--primary">
+          <div class="hero-eyebrow">N°01 · 自我认知法</div>
+          <h1>找到<br/>想做的事</h1>
+          <p class="lede">15 个问题，3 个支柱，1 句精确结论。<br/>改编自八木仁平《如何找到想做的事》——<br/>把"迷茫"翻译成"下一步该往哪走"。</p>
+        </section>
+
+        <div class="hero-cta">
+          <button class="btn-hero" id="startBtn">
+            <span class="btn-hero-label">${hasProgress ? '继续这场测试' : '开始这场测试'}</span>
+            <span class="btn-hero-arrow">→</span>
+          </button>
+          ${hasProgress ? '<div style="margin-top: 14px;"><button class="btn-link" id="resumeBtn">从上次离开处继续</button></div>' : '<div class="hero-cta-meta">点击即开始 · 约 8 分钟</div>'}
+        </div>
+
+        <div class="hero-stats hero-stats--compact">
+          <div class="hero-stat">
+            <div class="hero-stat-num">15</div>
+            <div class="hero-stat-label">题</div>
+          </div>
+          <div class="hero-stat-sep"></div>
+          <div class="hero-stat">
+            <div class="hero-stat-num">3</div>
+            <div class="hero-stat-label">支柱</div>
+          </div>
+          <div class="hero-stat-sep"></div>
+          <div class="hero-stat">
+            <div class="hero-stat-num">1</div>
+            <div class="hero-stat-label">方向</div>
+          </div>
+          <div class="hero-stat-sep"></div>
+          <div class="hero-stat">
+            <div class="hero-stat-num">~8<span style="font-size:14px;vertical-align:1px"> 分钟</span></div>
+            <div class="hero-stat-label">时长</div>
+          </div>
+        </div>
+
+        <section class="modules">
+          <div class="module-block why">
+            <div>
+              <div class="mb-num">01</div>
+            </div>
+            <div>
+              <div class="mb-name">重要的事</div>
+              <div class="mb-name-cn">你想活成的状态</div>
+            </div>
+          </div>
+          <div class="module-block how">
+            <div>
+              <div class="mb-num">02</div>
+            </div>
+            <div>
+              <div class="mb-name">擅长的事</div>
+              <div class="mb-name-cn">你无意识的方式</div>
+            </div>
+          </div>
+          <div class="module-block what">
+            <div>
+              <div class="mb-num">03</div>
+            </div>
+            <div>
+              <div class="mb-name">喜欢的事</div>
+              <div class="mb-name-cn">你好奇的领域</div>
+            </div>
+          </div>
+        </section>
+
+        <section class="formula-section">
+          <div class="section-num">公式</div>
+          <p class="formula-equation">
+            <span class="why-mark">重要</span> <span class="op">×</span> <span class="how-mark">擅长</span> <span class="op">×</span> <span class="what-mark">喜欢</span>
+            <br><span class="eq">=</span>
+            <span class="result">真正想做的事</span>
+          </p>
+          <p class="formula-note">
+            按书的顺序：先 <strong>重要</strong> → 再 <strong>擅长</strong> → 最后 <strong>喜欢</strong>。<br/>
+            找不到"想做的事"的最大原因，是<strong>顺序反了</strong>。
+          </p>
+        </section>
+
+        <div class="signature">
+          <div class="signature-text">Find Your Calling</div>
+          <div class="signature-text"><span class="accent">●</span> 八木仁平方法</div>
+        </div>
+      </div>
+    `);
+  }
+
+  // ==================== 误区页（必经全屏页） ====================
+  function renderMisconceptions() {
+    return renderHeader(`
+      <div class="misconceptions-page">
+        <div class="mis-header">
+          <div class="mis-eyebrow">开始前 · 必读</div>
+          <h1 class="mis-title">5 个误区</h1>
+          <p class="mis-lede">这些错误预设会让你一直找不到"想做的事"。<br/>先认清它们，再开始——大约 1 分钟。</p>
+        </div>
+
+        <div class="mis-list">
+          ${MISCONCEPTIONS.map((m, i) => `
+            <article class="mis-item">
+              <div class="mis-num">${String(i+1).padStart(2,'0')}</div>
+              <div class="mis-body">
+                <h3 class="mis-myth">
+                  <span class="mis-myth-mark">✕</span>
+                  ${escapeHTML(m.label)}
+                </h3>
+                <p class="mis-truth">${escapeHTML(m.fact)}</p>
+                <span class="mis-clarify">${escapeHTML(m.clarify)}</span>
+              </div>
+            </article>
+          `).join('')}
+        </div>
+
+        <div class="start-cta">
+          <button class="btn-solid" id="understoodBtn">
+            我明白了，开始 <span class="arrow">→</span>
+          </button>
+          <div class="bottom-note" style="margin-top: 24px;">改编自八木仁平《如何找到想做的事》第一章</div>
+        </div>
+      </div>
+    `);
+  }
+
+  // ==================== 答题页 ====================
+  function renderOption(q, opt) {
+    const isMulti = q.type === 'multi';
+    const val = state.answers[q.id] || (isMulti ? [] : '');
+    const selected = isMulti ? val.includes(opt) : val === opt;
+    return `<button class="option ${selected ? 'selected' : ''}" data-opt="${escapeAttr(opt)}">${escapeHTML(opt)}</button>`;
+  }
+  function renderQuestionBody(q) {
+    if (q.type === 'multi') {
+      const sel = state.answers[q.id] || [];
+      const limit = q.max || 5;
+      return `
+        ${q.hint ? `<div class="q-hint">${q.hint}</div>` : ''}
+        <div class="options-count">最多 ${limit} 个 · 已选 ${sel.length}/${limit}</div>
+        <div class="options">${q.options.map(o => renderOption(q, o)).join('')}</div>
+        ${q.allowCustom ? `<input type="text" class="custom-input" id="customInput" placeholder="${escapeAttr(q.custom || '其他...')}" />` : ''}
+      `;
+    } else if (q.type === 'text') {
+      const val = state.answers[q.id] || '';
+      return `
+        ${q.hint ? `<div class="q-hint">${q.hint}</div>` : ''}
+        <textarea class="text-input" id="textInput" placeholder="${escapeAttr(q.placeholder || '')}">${escapeHTML(val)}</textarea>
+      `;
+    }
+  }
+  function renderDialogue() {
+    const q = QUESTIONS[state.currentIdx];
+    if (!q) return renderResult();
+    const isLast = state.currentIdx === QUESTIONS.length - 1;
+    return `
+      ${renderHeader(`
+        <div class="question-page">
+          <div class="module-band ${q.module}">
+            <div>
+              <div class="band-letter">${q.module === 'values' ? '重' : q.module === 'talents' ? '擅' : q.module === 'interests' ? '喜' : '拼'}</div>
+              <span class="band-en">${escapeHTML(q.moduleLabel)}</span>
+            </div>
+            <div class="band-counter">第 ${state.currentIdx + 1} 题 / 共 ${QUESTIONS.length} 题${q.optional ? ' · 可选' : ''}</div>
+          </div>
+          ${renderProgress()}
+          <div class="q-content">
+            <h2 class="q-title">${escapeHTML(q.title)}</h2>
+            <div class="q-body">${renderQuestionBody(q)}</div>
+          </div>
+          <div id="qRequireHint" class="q-require-hint">${q.optional ? '这道题可选填，可以直接跳过' : '请先回答这道题，再进入下一题 ↑'}</div>
+          <div class="q-footer">
+            <button class="q-link" id="prevBtn">← 上一题</button>
+            <div class="q-nav">
+              ${q.optional ? '<button class="q-link" id="skipBtn">跳过</button>' : ''}
+              <button class="q-link primary" id="nextBtn">${isLast ? '查看结果' : '下一题'} →</button>
+            </div>
+          </div>
+        </div>
+      `)}
+    `;
+  }
+
+  // ==================== 列表模式 ====================
+  function renderList() {
+    const modules = {};
+    QUESTIONS.forEach((q, i) => {
+      if (!modules[q.module]) modules[q.module] = { label: q.moduleLabel, type: q.module, items: [] };
+      modules[q.module].items.push({ q, i });
+    });
+    return renderHeader(`
+      <div class="list-page">
+        <div class="list-progress-block">${renderProgress()}</div>
+        ${Object.values(modules).map(mod => `
+          <section class="list-section">
+            <div class="list-section-header ${mod.type}">
+              <span class="list-section-letter">${mod.type === 'values' ? '重' : mod.type === 'talents' ? '擅' : mod.type === 'interests' ? '喜' : '拼'}</span>
+              <h3 class="list-section-title">${escapeHTML(mod.label)}</h3>
+              <span class="list-section-count">${mod.items.length} 题${mod.items[0].q.optional ? ' · 2 可选' : ''}</span>
+            </div>
+            ${mod.items.map(({ q, i }) => renderListQ(q, i)).join('')}
+          </section>
+        `).join('')}
+        <div class="list-cta">
+          <button class="btn-solid" id="generateBtn" ${answeredCount() < 8 ? 'disabled' : ''}>
+            ${answeredCount() < 8 ? `至少答 8 题（当前 ${answeredCount()} 题）` : '查看我的结论'} <span class="arrow">→</span>
+          </button>
+        </div>
+      </div>
+    `);
+  }
+  function renderListQ(q, i) {
+    const done = answeredQ(q.id);
+    return `
+      <div class="list-q" data-qid="${q.id}">
+        <h4 class="list-q-title">
+          <span class="list-q-num">${String(i+1).padStart(2,'0')}.</span>
+          <span>${escapeHTML(q.title)}</span>
+          ${done ? '<span class="list-q-done">✓ 已答</span>' : ''}
+        </h4>
+        ${renderQuestionBody(q)}
+      </div>
+    `;
+  }
+
+  // ==================== 结果页 ====================
+  function renderResult() {
+    const r = analyze(state.answers);
+    const constraints = state.answers.q16 || [];
+    return renderHeader(`
+      <div class="result-page">
+        <div class="result-header">
+          <div class="result-eyebrow">结论</div>
+          <h1 class="result-title">致迷茫后的你</h1>
+          <p class="result-lede">这不是"你人生的唯一答案"，<br/>而是一个"基于你现有回答的方向"——<br/>你随时可以修改它。</p>
+        </div>
+
+        <section class="verdict">
+          <div class="verdict-tag">你的方向</div>
+          <p class="verdict-text">
+            <span class="verdict-quote">"</span>${escapeHTML(r.vocation)}<span class="accent">，</span>${escapeHTML(r.workPurpose)}<span class="verdict-quote">"</span>
+          </p>
+        </section>
+
+        <section class="elements">
+          <article class="element why">
+            <div class="element-stripe"></div>
+            <div class="element-inner">
+              <div class="element-meta">
+                <span class="element-num">01</span>
+                <span class="element-label">重要的事</span>
+              </div>
+              <div class="element-title">工作目的</div>
+              <div class="element-text">${escapeHTML(r.workPurpose)}</div>
+              <div class="element-tags">
+                ${r.values.length > 0 ? `<span class="element-tag primary">${escapeHTML(r.topValue)}</span>` : ''}
+                ${r.values.slice(1, 4).map(v => `<span class="element-tag">${escapeHTML(v)}</span>`).join('')}
+              </div>
+            </div>
+          </article>
+
+          <article class="element how">
+            <div class="element-stripe"></div>
+            <div class="element-inner">
+              <div class="element-meta">
+                <span class="element-num">02</span>
+                <span class="element-label">擅长的事</span>
+              </div>
+              <div class="element-title">做事方式</div>
+              <div class="element-text">${escapeHTML(r.vocation)}</div>
+              <div class="element-tags">
+                ${r.talents.length > 0 ? `<span class="element-tag primary">${escapeHTML(r.topTalent)}</span>` : ''}
+                ${r.talents.slice(1, 4).map(v => `<span class="element-tag">${escapeHTML(v)}</span>`).join('')}
+              </div>
+            </div>
+          </article>
+
+          <article class="element what">
+            <div class="element-stripe"></div>
+            <div class="element-inner">
+              <div class="element-meta">
+                <span class="element-num">03</span>
+                <span class="element-label">喜欢的事</span>
+              </div>
+              <div class="element-title">感兴趣的领域</div>
+              <div class="element-text">${escapeHTML(r.topInterest)}</div>
+              <div class="element-tags">
+                ${r.interests.length > 0 ? `<span class="element-tag primary">${escapeHTML(r.topInterest)}</span>` : ''}
+                ${r.interests.slice(1, 4).map(v => `<span class="element-tag">${escapeHTML(v)}</span>`).join('')}
+              </div>
+            </div>
+          </article>
+        </section>
+
+        ${r.alternatives.length > 0 ? `
+          <section class="alts">
+            <h3 class="alts-title"><span class="num">04</span> 其他可能性</h3>
+            ${r.alternatives.map((a, i) => `
+              <div class="alt-item">"${escapeHTML(a.text)}"</div>
+            `).join('')}
+          </section>
+        ` : ''}
+
+        <section class="portrait">
+          <h3 class="portrait-title"><span class="num">05</span> 个人画像</h3>
+          <div class="portrait-text">${r.portrait}</div>
+        </section>
+
+        ${constraints.length > 0 ? `
+          <div class="constraint">
+            <strong>你的现实约束：</strong>${constraints.map(c => escapeHTML(c)).join('、')}<br/>
+            ——不限制方向，但会记在后续行动里。
+          </div>
+        ` : ''}
+
+        <section class="actions">
+          <h3 class="actions-title"><span class="num">06</span> 3 条可执行行动</h3>
+          ${r.actions.map(a => `
+            <div class="action-item">
+              <div class="action-time">${escapeHTML(a.time)}</div>
+              <div class="action-content">
+                <strong>${escapeHTML(a.title)}</strong>
+                <span>${a.text}</span>
+              </div>
+            </div>
+          `).join('')}
+        </section>
+
+        <p class="closing">
+          "想做的事"不是结论，是路标。<br/>走几次，才会慢慢看见。
+        </p>
+
+        <div class="result-footer">
+          <button class="btn-link" id="backToListBtn">← 回看问题</button>
+          <button class="btn-link" id="restartBtn">重新开始</button>
+          <button class="btn-solid" id="exportBtn">复制文字版 <span class="arrow">→</span></button>
+        </div>
+
+        <div class="signature">
+          <div class="signature-text">Find Your Calling</div>
+          <div class="signature-text"><span class="accent">●</span> 八木仁平方法</div>
+        </div>
+      </div>
+    `);
+  }
+
+  // ==================== 事件 ====================
+  function attachEvents() {
+    document.getElementById('brandHome')?.addEventListener('click', () => { state.view = 'welcome'; render(); });
+    document.getElementById('modeToggle')?.addEventListener('click', e => {
+      if (e.target.dataset.mode) { state.mode = e.target.dataset.mode; state.view = state.mode; render(); }
+    });
+    document.getElementById('startBtn')?.addEventListener('click', () => { state.view = 'misconceptions'; render(); });
+    document.getElementById('resumeBtn')?.addEventListener('click', () => {
+      const firstUnanswered = QUESTIONS.findIndex(q => !q.optional && !answeredQ(q.id));
+      state.currentIdx = firstUnanswered >= 0 ? firstUnanswered : 0;
+      state.view = 'dialogue'; state.mode = 'dialogue'; render();
+    });
+    document.getElementById('understoodBtn')?.addEventListener('click', () => {
+      const firstUnanswered = QUESTIONS.findIndex(q => !q.optional && !answeredQ(q.id));
+      state.currentIdx = firstUnanswered >= 0 ? firstUnanswered : 0;
+      state.view = 'dialogue'; state.mode = 'dialogue'; render();
+    });
+    const q = QUESTIONS[state.currentIdx];
+    if (state.view === 'dialogue' && q) {
+      attachQuestionEvents(q);
+      document.getElementById('prevBtn')?.addEventListener('click', () => { if (state.currentIdx > 0) { state.currentIdx--; render(); } });
+      document.getElementById('nextBtn')?.addEventListener('click', () => {
+        const cq = QUESTIONS[state.currentIdx];
+        if (!cq.optional && !answeredQ(cq.id)) {
+          const card = document.querySelector('.question-page');
+          if (card) {
+            card.classList.add('q-shake');
+            const hint = document.getElementById('qRequireHint');
+            if (hint) hint.classList.add('show');
+            setTimeout(() => card.classList.remove('q-shake'), 420);
+          }
+          return;
+        }
+        if (state.currentIdx < QUESTIONS.length - 1) state.currentIdx++;
+        else state.view = 'result';
+        render();
+      });
+      document.getElementById('skipBtn')?.addEventListener('click', () => {
+        if (state.currentIdx < QUESTIONS.length - 1) state.currentIdx++;
+        else state.view = 'result';
+        render();
+      });
+    }
+    if (state.view === 'list') {
+      QUESTIONS.forEach(qq => attachQuestionEvents(qq));
+      document.getElementById('generateBtn')?.addEventListener('click', () => {
+        if (answeredCount() >= 8) { state.view = 'result'; render(); }
+      });
+    }
+    document.getElementById('restartBtn')?.addEventListener('click', () => {
+      if (confirm('确定要清空所有答案重新开始吗？')) {
+        state.answers = {}; state.currentIdx = 0; state.view = 'welcome'; state.mode = 'dialogue';
+        localStorage.removeItem(STORAGE_KEY); render();
+      }
+    });
+    document.getElementById('backToListBtn')?.addEventListener('click', () => { state.view = 'list'; state.mode = 'list'; render(); });
+    document.getElementById('exportBtn')?.addEventListener('click', () => {
+      const text = generateExportText();
+      navigator.clipboard.writeText(text).then(() => {
+        const btn = document.getElementById('exportBtn');
+        const orig = btn.innerHTML;
+        btn.innerHTML = '已复制 ✓';
+        setTimeout(() => { btn.innerHTML = orig; }, 1800);
+      }).catch(() => { alert('复制失败，请手动复制'); });
+    });
+  }
+
+  function attachQuestionEvents(q) {
+    const containers = [];
+    const stage = document.querySelector(`[data-qid="${q.id}"]`) || document.querySelector('.question-page');
+    if (stage) containers.push(stage);
+    if (containers.length === 0) return;
+    containers.forEach(container => {
+      if (q.type === 'multi') {
+        container.querySelectorAll('.option').forEach(btn => {
+          btn.addEventListener('click', () => {
+            const opt = btn.dataset.opt;
+            const arr = state.answers[q.id] || [];
+            const idx = arr.indexOf(opt);
+            if (idx >= 0) arr.splice(idx, 1);
+            else { if (arr.length >= (q.max || 5)) arr.shift(); arr.push(opt); }
+            state.answers[q.id] = [...arr];
+            render();
+          });
+        });
+      } else if (q.type === 'text') {
+        const input = container.querySelector('#textInput');
+        if (input) {
+          input.addEventListener('input', e => { state.answers[q.id] = e.target.value; saveState(); });
+        }
+      }
+      const customInput = container.querySelector('#customInput');
+      if (customInput) {
+        customInput.addEventListener('keydown', e => {
+          if (e.key === 'Enter' && customInput.value.trim()) {
+            const val = customInput.value.trim();
+            const arr = state.answers[q.id] || [];
+            if (!arr.includes(val) && arr.length < (q.max || 5)) {
+              arr.push(val); state.answers[q.id] = [...arr]; customInput.value = ''; render();
+            }
+          }
+        });
+      }
+    });
+  }
+
+  function generateExportText() {
+    const r = analyze(state.answers);
+    let text = `【找到想做的事 · Find Your Calling】\n\n`;
+    text += `—— 核心结论 ——\n"${r.vocation}，${r.workPurpose}"\n\n`;
+    text += `—— 三大支柱 ——\n`;
+    text += `Why（重要的事）: ${r.workPurpose}\n   价值观关键词: ${r.values.join('、') || '未识别'}\n`;
+    text += `How（擅长的事）: ${r.vocation}\n   才能关键词: ${r.talents.join('、') || '未识别'}\n`;
+    text += `What（喜欢的事）: ${r.topInterest}\n   领域关键词: ${r.interests.join('、') || '未识别'}\n\n`;
+    if (r.alternatives.length > 0) {
+      text += `—— 备选方案 ——\n`;
+      r.alternatives.forEach((a, i) => text += `${i+1}. "${a.text}"\n`);
+      text += '\n';
+    }
+    text += `—— 个人画像 ——\n${r.portrait.replace(/<[^>]+>/g, '')}\n\n`;
+    text += `—— 3 条行动 ——\n`;
+    r.actions.forEach(a => { text += `\n[${a.time}] ${a.title}\n${a.text.replace(/<[^>]+>/g, '')}\n`; });
+    text += `\n—— 完整答案 ——\n`;
+    QUESTIONS.forEach((q, i) => {
+      const v = state.answers[q.id];
+      if (!v || (Array.isArray(v) && v.length === 0) || (typeof v === 'string' && !v.trim())) return;
+      text += `\n${i+1}. [${q.moduleLabel}] ${q.title}\n`;
+      if (Array.isArray(v)) text += v.join(' / ') + '\n';
+      else text += v + '\n';
+    });
+    return text;
+  }
+
+  function escapeHTML(s) {
+    if (!s) return '';
+    return String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+  }
+  function escapeAttr(s) { return escapeHTML(s); }
+
+  loadState();
+  render();
+  </script>
+</body>
+</html>
