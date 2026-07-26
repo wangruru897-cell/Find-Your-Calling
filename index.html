@@ -26,7 +26,7 @@
     }
 
     * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
-    html, body { margin: 0; padding: 0; }
+    html, body { margin: 0; padding: 0; overflow-x: hidden; }
     body {
       font-family: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, 'PingFang SC', sans-serif;
       background: var(--bg);
@@ -1279,6 +1279,7 @@
       .formula-equation .result { font-size: 24px; }
       .mis-title { font-size: 34px; }
       .mis-title .italic-en { font-size: 19px; }
+      .question-page { margin: 0 -20px; }
       .module-band { padding: 22px 20px; }
       .q-content { padding: 32px 20px 0; }
       .progress-section { padding: 22px 20px 20px; margin: 0 -20px 0; }
@@ -1319,6 +1320,7 @@
       .mis-title .italic-en { font-size: 16px; }
       .mis-num { font-size: 26px; }
       .mis-body .mis-myth { font-size: 16px; }
+      .question-page { margin: 0 -16px; }
       .module-band { padding: 18px 16px; }
       .band-letter { font-size: 24px; }
       .q-content { padding: 24px 16px 0; }
@@ -1946,14 +1948,6 @@
           <p class="lede">15 个问题，3 个支柱，1 句精确结论。<br/>改编自八木仁平《如何找到想做的事》——<br/>把"迷茫"翻译成"下一步该往哪走"。</p>
         </section>
 
-        <div class="hero-cta">
-          <button class="btn-hero" id="startBtn">
-            <span class="btn-hero-label">${hasProgress ? '继续这场测试' : '开始这场测试'}</span>
-            <span class="btn-hero-arrow">→</span>
-          </button>
-          ${hasProgress ? '<div style="margin-top: 14px;"><button class="btn-link" id="resumeBtn">从上次离开处继续</button></div>' : '<div class="hero-cta-meta">点击即开始 · 约 8 分钟</div>'}
-        </div>
-
         <div class="hero-stats hero-stats--compact">
           <div class="hero-stat">
             <div class="hero-stat-num">15</div>
@@ -2018,6 +2012,14 @@
             找不到"想做的事"的最大原因，是<strong>顺序反了</strong>。
           </p>
         </section>
+
+        <div class="hero-cta">
+          <button class="btn-hero" id="startBtn">
+            <span class="btn-hero-label">${hasProgress ? '继续这场测试' : '开始这场测试'}</span>
+            <span class="btn-hero-arrow">→</span>
+          </button>
+          ${hasProgress ? '<div style="margin-top: 14px;"><button class="btn-link" id="resumeBtn">从上次离开处继续</button></div>' : '<div class="hero-cta-meta">点击即开始 · 约 8 分钟</div>'}
+        </div>
 
         <div class="signature">
           <div class="signature-text">Find Your Calling</div>
